@@ -1,16 +1,22 @@
-.container {
+.container-home{
     width: 600px;
     height: 400px;
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
-    display: grid;
+    display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-left: 250px;
 }
 
+.container-home h1 {
+    margin-bottom: 60px;
+}
+
+.container-home p + p {
+    margin-bottom: 90px;
+}
 .button-Home {
     width: 150px;
     font-size: 16px;

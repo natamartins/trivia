@@ -6,7 +6,7 @@
 body {
  background-image: url(../img/Quizz.jpg);
  background-repeat: no-repeat;
- background-size: 100%;
+background-size: cover;
  background-position: top;
   display: flex;
   justify-content: center;
@@ -16,4 +16,14 @@ body {
 
 .icone-victory {
     width: 100px;
+    margin: auto;
+}
+
+.container-end {
+  display: grid;
+  margin-left: 300px;
+}
+
+.container-end h1 {
+ margin-bottom: 60px;
 }

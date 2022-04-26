@@ -1,6 +1,8 @@
 import React from "react";
 import "../style/Questions.css";
 
+import Brain from  '../img/brain.png'
+
 function Question({
   handleAnswer,
   showAnswers,
@@ -11,15 +13,18 @@ function Question({
   return (
     <>
       <div className="container-quest">
-        <div className="questionClass">
-          <div>
-            <span> Questão {currentIndex + 1} de 10</span>
-            <br></br>
-            <span>Category: {category} </span>
-          </div>
+        <div className="question-Class">
+           <div>
+           <h4> Questions {currentIndex + 1} de 10</h4>
+            <h4>  {category} </h4>
+           </div>
+            <span className="Brain-img">
+              <img src={Brain} alt="Brain" />
+            </span>
+        </div>
+        <div className="questions-All">
           <h1>{question}</h1>
         </div>
-        <div></div>
         <div className="button-overall">
           {answers.map((answer) => {
             const specialClassName = showAnswers
@@ -27,7 +32,6 @@ function Question({
                 ? "green-button"
                 : "red-button"
               : "";
-
             return (
               <div className="box-buttonTrue">
                 <button

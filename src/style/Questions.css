@@ -1,64 +1,102 @@
+.container-quest {
+  width: 600px;
+  height: 400px;
+  border-radius: 15px;
+  padding: 30px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px;
+}
+
+.question-Class {
+  display: flex;
+  align-items: center;
+ justify-content: space-between;
+}
+
+.question-Class,
+.questions-All {
+  margin-bottom: 60px;
+}
 
 .button-overall {
-    display: flex;
-
+  display: flex;
 }
 
 .normal-button {
-    width: 150px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #252d4a;
-    border-radius: 15px;
-    display: flex;
-    padding: 10px 30px;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    margin: auto;
-    margin-bottom: 30px;
+  width: 150px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #252d4a;
+  border-radius: 15px;
+  display: flex;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  margin: auto;
+  margin-bottom: 30px;
 }
 
 .normal-button:hover {
-    transform: scale(1.1);
-    transition: transform 200ms ease-in-out;
-    cursor:pointer;
+  transform: scale(1.1);
+  transition: transform 200ms ease-in-out;
+  cursor: pointer;
 }
 
 .green-button {
- background-color: green;
-  }
+  background-color: green;
+  position: relative;
+}
+.green-button::before {
+  content: url(../img/bx-check.svg);
+  position: absolute;
+  left: 20px;
+}
 
-  .red-button {
-   background-color: red;
-  }
-  .NextStep {
-    width: 150px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #234668;
-    border-radius: 15px;
-    display: flex;
-    padding: 10px 30px;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid #234668;
-    cursor: pointer;
-    margin: auto;
-  }
-   
-  .NextStep:hover {
-      transform: scale(1.1);
-      transition: transform 200ms ease-in-out;
-      cursor:pointer;
-  }
-  
-  .NextStep[disabled] {
-      display: none;
-  }
+.red-button {
+  background-color: red;
+  position: relative;
+}
 
-  .box-buttonTrue  {
+.red-button::before {
+  content: url(../img/bx-x.svg);
+  position: absolute;
+  left: 20px;
+}
+
+.NextStep {
+  width: 150px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #234668;
+  border-radius: 15px;
+  display: flex;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #234668;
+  cursor: pointer;
+  margin: auto;
+}
+
+.NextStep:hover {
+  transform: scale(1.1);
+  transition: transform 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.NextStep[disabled] {
+  display: none;
+}
+
+.box-buttonTrue {
   margin: auto;
   margin-bottom: 30px;
-  }
+}
+
+.Brain-img img {
+width: 50px;
+}

@@ -1,10 +1,11 @@
 import Axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  } from "react";
+import {Link}  from "react-router-dom/cjs/react-router-dom.min";
 import Question from "../components/questions.jsx";
 
 import "../style/Quiz.css";
 
-import Icone from "../img/correct.png";
+import Icone from "../img/check.png";
 
 const API_URL = "https://opentdb.com/api.php?amount=10&type=boolean";
 
@@ -40,14 +41,21 @@ function Quiz() {
     setShowAnswers(false);
   };
 
+  // function handleHome(props) {
+  //   props.history.push("/quiz");
+  // }
+
   return questions.length > 0 ? (
+    
     <div className="container">
       {currentIndex >= questions.length ? (
-        <div>
+        <div className="container-end">
           <img src={Icone} alt="victory" className="icone-victory" />
           <h1>
             you got it right {score} out of {questions.length}
           </h1>
+          <Link className='NextStep' to='/' >Home</Link>
+          {/* <button onClick={handleHome} className="NextStep">Extra</button> */}
         </div>
       ) : (
         <Question
@@ -61,7 +69,7 @@ function Quiz() {
       )}
     </div>
   ) : (
-    <div className="container">Loading...</div>
+    <div className="container-end">Loading...</div>
   );
 }
 
