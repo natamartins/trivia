@@ -4,10 +4,7 @@
 }
 
 body {
- background-image: url(../img/Quizz.jpg);
- background-repeat: no-repeat;
-background-size: cover;
- background-position: top;
+  background-image: linear-gradient(to left bottom, #051937, #312962, #6f3083, #b72894, #ff0091);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,9 +18,14 @@ background-size: cover;
 
 .container-end {
   display: grid;
-  margin-left: 300px;
+  padding: 20px;
 }
 
 .container-end h1 {
  margin-bottom: 60px;
+}
+@media(max-width:800px) {
+  .container-end {
+    text-align: center;
+  }
 }

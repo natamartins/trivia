@@ -21,8 +21,8 @@ function Quiz() {
       .then((data) => {
         const questions = data.results.map((question) => ({
           ...question,
-          answers: [question.correct_answer, ...question.incorrect_answers],
-        }));
+          answers: [question.correct_answer, ...question.incorrect_answers].sort(() => Math.random() - 0.4)
+        })); 
         setQuestions(questions);
       });
   }, []);
@@ -40,14 +40,9 @@ function Quiz() {
     setCurrentIndex(currentIndex + 1);
     setShowAnswers(false);
   };
-
-  // function handleHome(props) {
-  //   props.history.push("/quiz");
-  // }
-
   return questions.length > 0 ? (
     
-    <div className="container">
+    <div className="container-end">
       {currentIndex >= questions.length ? (
         <div className="container-end">
           <img src={Icone} alt="victory" className="icone-victory" />
@@ -55,7 +50,6 @@ function Quiz() {
             you got it right {score} out of {questions.length}
           </h1>
           <Link className='NextStep' to='/' >Home</Link>
-          {/* <button onClick={handleHome} className="NextStep">Extra</button> */}
         </div>
       ) : (
         <Question

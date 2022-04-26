@@ -43,7 +43,6 @@ function Question({
             );
           })}
         </div>
-
         {showAnswers && (
           <button onClick={handleNextQuestion} className="NextStep">
             Next

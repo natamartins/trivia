@@ -2,12 +2,11 @@
     width: 600px;
     height: 400px;
     border-radius: 15px;
-    padding: 30px;
+    padding: 60px;
     display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-left: 250px;
 }
 
 .container-home h1 {

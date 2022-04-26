@@ -2,11 +2,10 @@
   width: 600px;
   height: 400px;
   border-radius: 15px;
-  padding: 30px;
+  padding: 60px;
   display: block;
   justify-content: center;
   align-items: center;
-  margin-left: 300px;
 }
 
 .question-Class {
@@ -20,12 +19,19 @@
   margin-bottom: 60px;
 }
 
+@media (max-width:800px) {
+  .container-quest {
+    width: 300px;
+    height:auto;
+  }
+}
+
 .button-overall {
   display: flex;
 }
 
 .normal-button {
-  width: 150px;
+  width: 120px;
   font-size: 16px;
   color: #ffffff;
   background-color: #252d4a;
@@ -53,7 +59,7 @@
 .green-button::before {
   content: url(../img/bx-check.svg);
   position: absolute;
-  left: 20px;
+  left: 10px;
 }
 
 .red-button {
@@ -64,7 +70,7 @@
 .red-button::before {
   content: url(../img/bx-x.svg);
   position: absolute;
-  left: 20px;
+  left: 10px;
 }
 
 .NextStep {
@@ -80,12 +86,14 @@
   border: 5px solid #234668;
   cursor: pointer;
   margin: auto;
+  text-decoration: none;
 }
 
 .NextStep:hover {
   transform: scale(1.1);
   transition: transform 200ms ease-in-out;
   cursor: pointer;
+
 }
 
 .NextStep[disabled] {
@@ -99,4 +107,11 @@
 
 .Brain-img img {
 width: 50px;
+}
+
+@media (max-width:800px) {
+  .box-buttonTrue {
+   display: grid;
+  }
+  
 }
