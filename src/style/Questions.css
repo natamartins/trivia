@@ -1,0 +1,64 @@
+
+.button-overall {
+    display: flex;
+
+}
+
+.normal-button {
+    width: 150px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #252d4a;
+    border-radius: 15px;
+    display: flex;
+    padding: 10px 30px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.normal-button:hover {
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+    cursor:pointer;
+}
+
+.green-button {
+ background-color: green;
+  }
+
+  .red-button {
+   background-color: red;
+  }
+  .NextStep {
+    width: 150px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #234668;
+    border-radius: 15px;
+    display: flex;
+    padding: 10px 30px;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #234668;
+    cursor: pointer;
+    margin: auto;
+  }
+   
+  .NextStep:hover {
+      transform: scale(1.1);
+      transition: transform 200ms ease-in-out;
+      cursor:pointer;
+  }
+  
+  .NextStep[disabled] {
+      display: none;
+  }
+
+  .box-buttonTrue  {
+  margin: auto;
+  margin-bottom: 30px;
+  }
