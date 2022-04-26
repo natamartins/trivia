@@ -1,25 +1,30 @@
 import React from "react";
-import BoxTimer from "./BoxTimer";
-import "../pages/Questions.css";
+import "../style/Questions.css";
 
+import Brain from  '../img/brain.png'
 
 function Question({
   handleAnswer,
   showAnswers,
   handleNextQuestion,
+  currentIndex,
   data: { question, correct_answer, answers, category },
 }) {
   return (
     <>
-      <BoxTimer />
       <div className="container-quest">
-        <div className="questionClass">
-          <span>
-            <h1>Category: {category}</h1>
-          </span>
-          <h1 dangerouslySetInnerHTML={{ __html: question }} />
+        <div className="question-Class">
+           <div>
+           <h4> Questions {currentIndex + 1} de 10</h4>
+            <h4>  {category} </h4>
+           </div>
+            <span className="Brain-img">
+              <img src={Brain} alt="Brain" />
+            </span>
         </div>
-        <div></div>
+        <div className="questions-All">
+          <h1>{question}</h1>
+        </div>
         <div className="button-overall">
           {answers.map((answer) => {
             const specialClassName = showAnswers
@@ -28,7 +33,7 @@ function Question({
                 : "red-button"
               : "";
             return (
-              <div className="">
+              <div className="box-buttonTrue">
                 <button
                   className={`normal-button ${specialClassName}`}
                   onClick={() => handleAnswer(answer)}
@@ -38,7 +43,6 @@ function Question({
             );
           })}
         </div>
-
         {showAnswers && (
           <button onClick={handleNextQuestion} className="NextStep">
             Next

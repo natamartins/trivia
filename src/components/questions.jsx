@@ -3,13 +3,13 @@ import "../style/Questions.css";
 
 import Brain from  '../img/brain.png'
 
-function Question({
+const Question = ({
   handleAnswer,
   showAnswers,
   handleNextQuestion,
   currentIndex,
   data: { question, correct_answer, answers, category },
-}) {
+}) => {
   return (
     <>
       <div className="container-quest">

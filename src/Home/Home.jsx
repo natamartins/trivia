@@ -1,7 +1,6 @@
 import React from "react";
 
-
-import '../Home/Home.css'
+import "../Home/Home.css";
 
 const Home = (props) => {
   function handleClick() {
@@ -14,7 +13,9 @@ const Home = (props) => {
       <p>Test Your Knowledge</p>
       <p>You will have 10 questions to answer</p>
       <p>Good Lock!</p>
-      <button onClick={handleClick} className='button-Home' >Start</button>
+      <button onClick={handleClick} className="button-Home">
+        Start
+      </button>
     </div>
   );
 };

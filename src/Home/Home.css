@@ -1,6 +1,5 @@
 .container-home{
-    width: 600px;
-    height: 400px;
+    width: 100%;
     border-radius: 15px;
     padding: 60px;
     display: block;

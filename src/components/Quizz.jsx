@@ -1,7 +1,7 @@
 import Axios from "axios";
-import React, { useState, useEffect  } from "react";
-import {Link}  from "react-router-dom/cjs/react-router-dom.min";
-import Question from "../components/questions.jsx";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Question from "./Questions.jsx";
 
 import "../style/Quiz.css";
 
@@ -9,7 +9,7 @@ import Icone from "../img/check.png";
 
 const API_URL = "https://opentdb.com/api.php?amount=10&type=boolean";
 
-function Quiz() {
+const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -21,8 +21,11 @@ function Quiz() {
       .then((data) => {
         const questions = data.results.map((question) => ({
           ...question,
-          answers: [question.correct_answer, ...question.incorrect_answers].sort(() => Math.random() - 0.4)
-        })); 
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ].sort(() => Math.random() - 0.4),
+        }));
         setQuestions(questions);
       });
   }, []);
@@ -33,6 +36,7 @@ function Quiz() {
         setScore(score + 1);
       }
     }
+
     setShowAnswers(true);
   };
 
@@ -40,18 +44,10 @@ function Quiz() {
     setCurrentIndex(currentIndex + 1);
     setShowAnswers(false);
   };
+
   return questions.length > 0 ? (
-    
     <div className="container-end">
-      {currentIndex >= questions.length ? (
-        <div className="container-end">
-          <img src={Icone} alt="victory" className="icone-victory" />
-          <h1>
-            you got it right {score} out of {questions.length}
-          </h1>
-          <Link className='NextStep' to='/' >Home</Link>
-        </div>
-      ) : (
+      {currentIndex < questions.length ? (
         <Question
           handleAnswer={handleAnswer}
           showAnswers={showAnswers}
@@ -60,11 +56,21 @@ function Quiz() {
           currentIndex={currentIndex}
           data={questions[currentIndex]}
         />
+      ) : (
+        <div className="container-end">
+          <img src={Icone} alt="victory" className="icone-victory" />
+          <h1>
+            You got it right {score} out of {questions.length}
+          </h1>
+          <Link className="NextStep" to="/">
+            Home
+          </Link>
+        </div>
       )}
     </div>
   ) : (
     <div className="container-end">Loading...</div>
   );
-}
+};
 
 export default Quiz;

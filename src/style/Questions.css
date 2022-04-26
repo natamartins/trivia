@@ -1,9 +1,9 @@
 .container-quest {
-  width: 600px;
-  height: 400px;
+  width: 70%;
   border-radius: 15px;
   padding: 60px;
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
