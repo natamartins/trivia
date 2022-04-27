@@ -66,8 +66,8 @@ const Quiz = () => {
           <h1>
             You got it right {score} out of {questions.length} in {secondsToMinuts(stopTime)}
           </h1>
-          <Link className="NextStep" to="/">
-            Home
+          <Link className="return-to-home" to="/">
+          return to home
           </Link>
         </div>
       )}
