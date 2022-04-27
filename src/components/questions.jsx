@@ -1,29 +1,36 @@
 import React from "react";
+import {decode} from 'html-entities';
+
+import secondsToMinuts from "./time";
+
 import "../style/Questions.css";
 
-import Brain from  '../img/brain.png'
+import Brain from "../img/brain.png";
 
 const Question = ({
   handleAnswer,
   showAnswers,
   handleNextQuestion,
   currentIndex,
+  counter,
+  totalQuestions,
   data: { question, correct_answer, answers, category },
 }) => {
   return (
     <>
       <div className="container-quest">
         <div className="question-Class">
-           <div>
-           <h4> Questions {currentIndex + 1} de 10</h4>
-            <h4>  {category} </h4>
-           </div>
-            <span className="Brain-img">
-              <img src={Brain} alt="Brain" />
-            </span>
+          <div>
+            <h4>Questions {currentIndex + 1} de {totalQuestions}</h4>
+            <h4>{category}</h4>
+          </div>
+          <span className="Brain-img">
+            <span>{secondsToMinuts(counter)}</span>
+            <img src={Brain} alt="Brain" />
+          </span>
         </div>
         <div className="questions-All">
-          <h1>{question}</h1>
+          <h1>{decode(question, {level: 'all'})}</h1>
         </div>
         <div className="button-overall">
           {answers.map((answer) => {
@@ -51,6 +58,6 @@ const Question = ({
       </div>
     </>
   );
-}
+};
 
 export default Question;

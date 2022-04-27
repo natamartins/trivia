@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 18px);
 }
 
 .icone-victory {
@@ -17,15 +17,21 @@ body {
 }
 
 .container-end {
-  display: grid;
+  display: flex;
   padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.finish-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-end h1 {
  margin-bottom: 60px;
-}
-@media(max-width:800px) {
-  .container-end {
-    text-align: center;
-  }
 }

@@ -3,20 +3,20 @@ import "../style/Questions.css";
 
 import Brain from  '../img/brain.png'
 
-function Question({
+const Question = ({
   handleAnswer,
   showAnswers,
   handleNextQuestion,
   currentIndex,
   data: { question, correct_answer, answers, category },
-}) {
+}) => {
   return (
     <>
       <div className="container-quest">
         <div className="question-Class">
            <div>
            <h4> Questions {currentIndex + 1} de 10</h4>
-            <h4>  {category} </h4>
+            <h4>  {category}!!! </h4>
            </div>
             <span className="Brain-img">
               <img src={Brain} alt="Brain" />

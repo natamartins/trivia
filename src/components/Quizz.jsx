@@ -1,42 +1,44 @@
-import Axios from "axios";
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import Question from "./Questions.jsx";
+import API from "../api/data";
+
+import Question from "./questions.jsx";
+
+import secondsToMinuts from "./time";
 
 import "../style/Quiz.css";
 
 import Icone from "../img/check.png";
-
-const API_URL = "https://opentdb.com/api.php?amount=10&type=boolean";
 
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showAnswers, setShowAnswers] = useState(false);
-
+  const [counter , setCounter] = useState(0);
+  const [stopTime, setStopTime] = useState(false);
+  
   useEffect(() => {
-    Axios.get(API_URL)
-      .then((res) => res.data)
-      .then((data) => {
-        const questions = data.results.map((question) => ({
-          ...question,
-          answers: [
-            question.correct_answer,
-            ...question.incorrect_answers,
-          ].sort(() => Math.random() - 0.4),
-        }));
-        setQuestions(questions);
-      });
+    API(questions, setQuestions)
   }, []);
 
+  useEffect(() => {
+    if (currentIndex < questions.length) {
+      setTimeout(() => {
+        setCounter(counter + 1)
+      },1000)
+    } else {
+      setStopTime(counter)
+    }
+  },[currentIndex, questions, counter, stopTime])
+   
   const handleAnswer = (answer) => {
     if (!showAnswers) {
       if (answer === questions[currentIndex].correct_answer) {
         setScore(score + 1);
       }
     }
-
     setShowAnswers(true);
   };
 
@@ -53,14 +55,16 @@ const Quiz = () => {
           showAnswers={showAnswers}
           handleNextQuestion={handleNextQuestion}
           score={score}
+          counter={counter}
           currentIndex={currentIndex}
           data={questions[currentIndex]}
+          totalQuestions={questions.length}
         />
       ) : (
-        <div className="container-end">
+        <div className="finish-result">
           <img src={Icone} alt="victory" className="icone-victory" />
           <h1>
-            You got it right {score} out of {questions.length}
+            You got it right {score} out of {questions.length} in {secondsToMinuts(stopTime)}
           </h1>
           <Link className="NextStep" to="/">
             Home

@@ -1,33 +1,40 @@
 .container-quest {
-  width: 70%;
+  width: 600px;
   border-radius: 15px;
   padding: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: baseline;
+  position: relative;
 }
 
 .question-Class {
-  display: flex;
-  align-items: center;
- justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  width: 100%;
 }
 
-.question-Class,
-.questions-All {
-  margin-bottom: 60px;
-}
-
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .container-quest {
-    width: 300px;
-    height:auto;
+    width: 100%;
+  }
+
+  .container-quest {
+    padding: 0;
+  }
+
+  .question-Class {
+    gap: 20px;
+  }
+
+  .question-All h1 {
+    font-size: 2rem;
   }
 }
 
 .button-overall {
   display: flex;
+  gap: 30px;
 }
 
 .normal-button {
@@ -42,7 +49,6 @@
   align-items: center;
   border: none;
   cursor: pointer;
-  margin: auto;
   margin-bottom: 30px;
 }
 
@@ -87,13 +93,14 @@
   cursor: pointer;
   margin: auto;
   text-decoration: none;
+  position: absolute;
+  bottom: 0;
 }
 
 .NextStep:hover {
   transform: scale(1.1);
   transition: transform 200ms ease-in-out;
   cursor: pointer;
-
 }
 
 .NextStep[disabled] {
@@ -104,14 +111,18 @@
   margin: auto;
   margin-bottom: 30px;
 }
-
-.Brain-img img {
-width: 50px;
+.Brain-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-@media (max-width:800px) {
+.Brain-img img {
+  width: 50px;
+}
+
+@media (max-width: 800px) {
   .box-buttonTrue {
-   display: grid;
+    display: grid;
   }
-  
 }
