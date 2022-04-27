@@ -1,31 +1,38 @@
-import Axios from "axios";
+
 import React, { useState, useEffect } from "react";
-import Question from "../components/questions.jsx";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import API from "../api/data";
+
+import Question from "./questions.jsx";
+
+import secondsToMinuts from "./time";
 
 import "../style/Quiz.css";
 
-import Icone from "../img/correct.png";
+import Icone from "../img/check.png";
 
-const API_URL = "https://opentdb.com/api.php?amount=10&type=boolean";
-
-function Quiz() {
+const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showAnswers, setShowAnswers] = useState(false);
-
+  const [counter , setCounter] = useState(0);
+  const [stopTime, setStopTime] = useState(false);
+  
   useEffect(() => {
-    Axios.get(API_URL)
-      .then((res) => res.data)
-      .then((data) => {
-        const questions = data.results.map((question) => ({
-          ...question,
-          answers: [question.correct_answer, ...question.incorrect_answers],
-        }));
-        setQuestions(questions);
-      });
+    API(questions, setQuestions)
   }, []);
 
+  useEffect(() => {
+    if (currentIndex < questions.length) {
+      setTimeout(() => {
+        setCounter(counter + 1)
+      },1000)
+    } else {
+      setStopTime(counter)
+    }
+  },[currentIndex, questions, counter, stopTime])
+   
   const handleAnswer = (answer) => {
     if (!showAnswers) {
       if (answer === questions[currentIndex].correct_answer) {
@@ -41,28 +48,33 @@ function Quiz() {
   };
 
   return questions.length > 0 ? (
-    <div className="container">
-      {currentIndex >= questions.length ? (
-        <div>
-          <img src={Icone} alt="victory" className="icone-victory" />
-          <h1>
-            you got it right {score} out of {questions.length}
-          </h1>
-        </div>
-      ) : (
+    <div className="container-end">
+      {currentIndex < questions.length ? (
         <Question
           handleAnswer={handleAnswer}
           showAnswers={showAnswers}
           handleNextQuestion={handleNextQuestion}
           score={score}
+          counter={counter}
           currentIndex={currentIndex}
           data={questions[currentIndex]}
+          totalQuestions={questions.length}
         />
+      ) : (
+        <div className="finish-result">
+          <img src={Icone} alt="victory" className="icone-victory" />
+          <h1>
+            You got it right {score} out of {questions.length} in {secondsToMinuts(stopTime)}
+          </h1>
+          <Link className="return-to-home" to="/">
+          return to home
+          </Link>
+        </div>
       )}
     </div>
   ) : (
-    <div className="container">Loading...</div>
+    <div className="container-end">Loading...</div>
   );
-}
+};
 
 export default Quiz;

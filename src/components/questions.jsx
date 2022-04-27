@@ -1,25 +1,37 @@
 import React from "react";
+import {decode} from 'html-entities';
+
+import secondsToMinuts from "./time";
+
 import "../style/Questions.css";
 
-function Question({
+import Brain from "../img/brain.png";
+
+const Question = ({
   handleAnswer,
   showAnswers,
   handleNextQuestion,
   currentIndex,
+  counter,
+  totalQuestions,
   data: { question, correct_answer, answers, category },
-}) {
+}) => {
   return (
     <>
       <div className="container-quest">
-        <div className="questionClass">
+        <div className="question-Class">
           <div>
-            <span> Questão {currentIndex + 1} de 10</span>
-            <br></br>
-            <span>Category: {category} </span>
+            <h4>Questions {currentIndex + 1} de {totalQuestions}</h4>
+            <h4>{category}</h4>
           </div>
-          <h1>{question}</h1>
+          <span className="Brain-img">
+            <span>{secondsToMinuts(counter)}</span>
+            <img src={Brain} alt="Brain" />
+          </span>
         </div>
-        <div></div>
+        <div className="questions-All">
+          <h1>{decode(question, {level: 'all'})}</h1>
+        </div>
         <div className="button-overall">
           {answers.map((answer) => {
             const specialClassName = showAnswers
@@ -27,7 +39,6 @@ function Question({
                 ? "green-button"
                 : "red-button"
               : "";
-
             return (
               <div className="box-buttonTrue">
                 <button
@@ -39,7 +50,6 @@ function Question({
             );
           })}
         </div>
-
         {showAnswers && (
           <button onClick={handleNextQuestion} className="NextStep">
             Next
@@ -48,6 +58,6 @@ function Question({
       </div>
     </>
   );
-}
+};
 
 export default Question;
