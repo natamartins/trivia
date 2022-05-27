@@ -1,0 +1,30 @@
+.container-quest {
+  width: 600px;
+  border-radius: 15px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  position: relative;
+}
+
+.container-quest-new {
+    width: 600px;
+    display: flex;
+    justify-content:space-between ;
+}
+
+.container-buton-game {
+    display: flex;
+    gap:10px;
+}
+
+.BrainIMG {
+    max-width:50px;
+}
+
+.containe-img {
+   display:flex;
+   align-items:center;
+   gap:10px;
+}

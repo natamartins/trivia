@@ -1,0 +1,23 @@
+.container-start {
+    border-radius: 15px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .container-start h1 {
+    margin-bottom: 60px;
+  }
+  
+  .container-start p + p {
+    margin-bottom: 90px;
+  }
+  
+  @media (max-width:800px) {
+      .button-start {
+        bottom: -150px;
+        width: 100%;
+      }
+    }
