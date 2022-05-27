@@ -1,0 +1,37 @@
+.summary-answer {
+    height:300px;
+    overflow: auto ;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #444; 
+    border-radius:10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.summary-answer .item-answer.correct {
+    background-color: green;
+    padding-left:10px;
+    border-radius:10px;
+  }
+.summary-answer .item-answer.incorrect {
+   background-color:red;
+   padding-left:10px;
+   border-radius:10px;
+}
+  
