@@ -16,7 +16,7 @@ const End = () => {
     <div className="container-end">
       <h2 >End Quiz</h2>
       <p >
-        you score {score} of 10 
+        you score {score} / 10 
       </p>
       <div className="summary-answer">
         {answers.map((answer, index) => {
@@ -39,10 +39,10 @@ const End = () => {
       className="button"
         onClick={restartHandler}
       >
-        inicio
+        Start Quiz
       </button>
     </div>
   );
 };
 
-export default End;
+ export default End;

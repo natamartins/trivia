@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import {decode} from 'html-entities';
 import { useSelector, useDispatch } from "react-redux";
 import { answerQuestion } from "../Reducer/slicer/game";
 import { finishGame } from "../Reducer/slicer/inicialGame";
 
-import Brain from  '../img/brain.png'
+import Brain from  '../img/relogio.png'
 
 const Game
  = () => {
@@ -12,6 +13,7 @@ const Game
   const dispatch = useDispatch();
 
   const score = useSelector((state) => state.quizState.score);
+
 
   const questionIndex = useSelector(
     (state) => state.quizState.currentQuestionIndex
@@ -44,7 +46,7 @@ const Game
       <div className="container-quest-new">
       <div>
       <p>
-        Score : {score}
+        category : {}
       </p>
       <p>
        Question {questionIndex + 1} / 10{" "}
@@ -55,7 +57,8 @@ const Game
       <img src={Brain} alt="Brain" className="BrainIMG" />
       </div>
       </div>
-      <h1 >{currentQuestion}</h1>
+      <h1>{decode(currentQuestion, {level: 'all'})}</h1>
+
       <div className="container-buton-game" >
         <button
         className="button"

@@ -28,3 +28,19 @@
    align-items:center;
    gap:10px;
 }
+@media(max-width:800px) {
+    .container-quest {
+        width: auto;
+      }
+      .container-quest-new {
+        width: auto;  
+       gap:90px;
+    }
+}
+
+.butonloading {
+    padding:40px 20px;
+    border-radius:50%;
+    border:none;
+    background-color: #234668;
+}
