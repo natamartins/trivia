@@ -7,6 +7,7 @@ const Fetch = () => {
 
   return (
         <button
+        className="butonloading"
           onClick={() => dispatch(cancelGame())}
         >
          Loading..
