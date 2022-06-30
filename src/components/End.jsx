@@ -35,10 +35,9 @@ const End = () => {
           );
         })}
       </div>
-      <Link to='/'className="button" onClick={restartHandler}>Start Quiz</Link>
-      {/* <button className="button" onClick={restartHandler}>
+      <Link to="/" className="button" onClick={restartHandler}>
         Start Quiz
-      </button> */}
+      </Link>
     </div>
   );
 };

@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Start from "./components/Main.jsx";
+import Start from "./pages/Start.jsx";
 import Game from "./components/Main.jsx";
-// import End from './components/End.jsx';
-// import Game from './Reducer/slicer/game.jsx';
 
 import "./scss/styles.scss";
 const Router = () => {
@@ -12,8 +10,6 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/game" element={<Game />} />
-
-        {/* <Route path="/end" element={<End />} /> */}
       </Routes>
     </BrowserRouter>
   );

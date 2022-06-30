@@ -28,7 +28,7 @@ const Main = () => {
 
     case stages.END_GAME:
       displayedPage = <EndGame />;
-      break; 
+      break;
 
     default:
       break;

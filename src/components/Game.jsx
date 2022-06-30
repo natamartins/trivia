@@ -19,6 +19,10 @@ const Game = () => {
     (state) => state.quizState.questions[questionIndex].question
   );
 
+  const currentCategory = useSelector(
+    (state) => state.quizState.questions[questionIndex].category
+  );
+
   const answerHandle = (answer) => {
     dispatch(answerQuestion({ answer }));
   };
@@ -42,10 +46,11 @@ const Game = () => {
       <div className="container-quest-new">
         <div>
           <p>Question {questionIndex + 1} / 10</p>
+          <p>{currentCategory}</p>
         </div>
 
         <div className="containe-img">
-          <p> {timeleft}</p>
+          <p>{timeleft}</p>
           <img src={Brain} alt="Brain" className="BrainIMG" />
         </div>
       </div>
