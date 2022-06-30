@@ -9,7 +9,7 @@ function* fetchQuestionSaga() {
         const data = yield call(fetchQuizFromApi);
         yield put(fetchQuestionsSuccess(data));
     } catch (error) {
-        yield put(fetchQuestionFail("เกิดข้อผิดพลาด"))
+        yield put(fetchQuestionFail("There was an error fetching the questions."))
     }
 }
 

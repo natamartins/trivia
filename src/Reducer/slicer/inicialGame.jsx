@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import * as stages from '../../utils/constants';
-import { fetchQuestionFail,fetchQuestionsSuccess } from './game';
+import { fetchQuestionFail, fetchQuestionsSuccess } from './game';
 
-const initialState = {
+const initialState = {  
     stage: 'START_GAME',
-    username: '',
 }
 
 const gameState = createSlice({
@@ -13,7 +12,6 @@ const gameState = createSlice({
     reducers: { 
         startGame(state, action) {
             console.log(action);
-            state.username = action.payload.username;
             state.stage = stages.FETCHING_GAME;
         },
         cancelGame(state) {

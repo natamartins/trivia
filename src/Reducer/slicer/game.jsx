@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     questions: [],
-    category: [],
     error: null,
     score: null,
     currentQuestionIndex: null,
@@ -15,7 +14,6 @@ const quizState = createSlice({
     reducers: {
         fetchQuestionsSuccess(state, action) {
             state.questions = action.payload;
-            state.category = action.payload;
             state.score = 0;
             state.currentQuestionIndex = 0;
             state.answers = [];
@@ -25,7 +23,7 @@ const quizState = createSlice({
         },
         answerQuestion(state, action) {
             const currentQuestion = state.questions[state.currentQuestionIndex];
-            state.score += action.payload.answer === currentQuestion.correct_answer ? 1 : 0;    
+            state.score += action.payload.answer === currentQuestion.correct_answer ? 1  : 0;    
             state.answers.push({
                 question: currentQuestion.question,
                 answer: action.payload.answer,
