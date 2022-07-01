@@ -1,11 +1,10 @@
 import React from "react";
-import MainPage from "./pages/Main";
-import "./scss/styles.scss"
+import Router from "./";
 
 function App() {
   return (
-    <div >
-      <MainPage />
+    <div>
+      <Router />
     </div>
   );
 }

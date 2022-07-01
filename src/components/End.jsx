@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { restartGame } from "../Reducer/slicer/inicialGame";
 
 const End = () => {
   const dispatch = useDispatch();
-  const username = useSelector((state) => state.gameState.username);
   const answers = useSelector((state) => state.quizState.answers);
   const score = useSelector((state) => state.quizState.score);
 
@@ -14,10 +14,8 @@ const End = () => {
 
   return (
     <div className="container-end">
-      <h2 >End Quiz</h2>
-      <p >
-        you score {score} / 10 
-      </p>
+      <h2>End Quiz</h2>
+      <p>you score {score} / 10</p>
       <div className="summary-answer">
         {answers.map((answer, index) => {
           return (
@@ -29,20 +27,19 @@ const End = () => {
               }
               key={index}
             >
-              <p>{index + 1}. {answer.question}</p>
+              <p>
+                {index + 1}. {answer.question}
+              </p>
               <p>answer : {answer.answer}</p>
             </div>
           );
         })}
       </div>
-      <button
-      className="button"
-        onClick={restartHandler}
-      >
+      <Link to="/" className="button" onClick={restartHandler}>
         Start Quiz
-      </button>
+      </Link>
     </div>
   );
 };
 
- export default End;
+export default End;

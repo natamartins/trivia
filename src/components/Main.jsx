@@ -4,7 +4,7 @@ import * as stages from "../utils/constants";
 
 //Page
 import EndGame from "./End";
-import StartGame from "./Start";
+import StartGame from "../pages/Start";
 import FetchingPage from "./Fetch";
 import GamePage from "./Game";
 

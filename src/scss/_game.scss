@@ -9,38 +9,38 @@
 }
 
 .container-quest-new {
-    width: 600px;
-    display: flex;
-    justify-content:space-between ;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container-buton-game {
-    display: flex;
-    gap:10px;
+  display: flex;
+  gap: 10px;
 }
 
 .BrainIMG {
-    max-width:50px;
+  max-width: 50px;
 }
 
 .containe-img {
-   display:flex;
-   align-items:center;
-   gap:10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-@media(max-width:800px) {
-    .container-quest {
-        width: auto;
-      }
-      .container-quest-new {
-        width: auto;  
-       gap:90px;
-    }
+@media (max-width: 800px) {
+  .container-quest {
+    width: auto;
+  }
+  .container-quest-new {
+    width: auto;
+    gap: 90px;
+  }
 }
 
 .butonloading {
-    padding:40px 20px;
-    border-radius:50%;
-    border:none;
-    background-color: #234668;
+  padding: 40px 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: #234668;
 }

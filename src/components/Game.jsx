@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {decode} from 'html-entities';
+import { decode } from "html-entities";
 import { useSelector, useDispatch } from "react-redux";
 import { answerQuestion } from "../Reducer/slicer/game";
 import { finishGame } from "../Reducer/slicer/inicialGame";
 
-import Brain from  '../img/relogio.png'
+import Brain from "../img/relogio.png";
 
-const Game
- = () => {
+const Game = () => {
   const [timeleft, settimeleft] = useState(60);
 
   const dispatch = useDispatch();
-
-  const score = useSelector((state) => state.quizState.score);
-
 
   const questionIndex = useSelector(
     (state) => state.quizState.currentQuestionIndex
@@ -21,6 +17,10 @@ const Game
 
   const currentQuestion = useSelector(
     (state) => state.quizState.questions[questionIndex].question
+  );
+
+  const currentCategory = useSelector(
+    (state) => state.quizState.questions[questionIndex].category
   );
 
   const answerHandle = (answer) => {
@@ -39,37 +39,30 @@ const Game
     return () => {
       clearInterval(interval);
     };
-  },);
+  });
 
   return (
     <div className="container-quest">
       <div className="container-quest-new">
-      <div>
-      <p>
-        category : {}
-      </p>
-      <p>
-       Question {questionIndex + 1} / 10{" "}
-      </p>
-      </div>
-      <div className="containe-img">  
-      <p> {timeleft}</p>
-      <img src={Brain} alt="Brain" className="BrainIMG" />
-      </div>
-      </div>
-      <h1>{decode(currentQuestion, {level: 'all'})}</h1>
+        <div>
+          <p>Question {questionIndex + 1} / 10</p>
+          <p>{currentCategory}</p>
+        </div>
 
-      <div className="container-buton-game" >
-        <button
-        className="button"
-          onClick={() => answerHandle("True")}
-        >
+        <div className="containe-img">
+          <p>{timeleft}</p>
+          <img src={Brain} alt="Brain" className="BrainIMG" />
+        </div>
+      </div>
+
+      <h1>{decode(currentQuestion, { level: "all" })}</h1>
+
+      <div className="container-buton-game">
+        <button className="button" onClick={() => answerHandle("True")}>
           true
         </button>
-        <button
-        className="button"
-          onClick={() => answerHandle("False")}
-        >
+
+        <button className="button" onClick={() => answerHandle("False")}>
           false
         </button>
       </div>
@@ -77,5 +70,4 @@ const Game
   );
 };
 
-export default Game
-;
+export default Game;
